@@ -1,0 +1,21 @@
+*{
+margin:0%;
+padding:0%;
+box-sizing: border-box;
+}
+html,body{
+height: 100%;
+width: 100%;
+font-family: helvetica neue;
+}
+.hero{
+  background-color: red;
+}
+.f1{
+  color: blue;
+  padding: 30px;
+}
+.Na{
+  background-color: blueviolet; 
+  padding: 20px;
+}
