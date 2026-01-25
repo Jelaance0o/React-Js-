@@ -1,0 +1,16 @@
+// const app = ()=>{
+//   return <div>
+//     <h1>Hello</h1>
+//     <h2>Hello</h2>
+//   </div>
+// }
+
+// export default 
+
+
+const App =()=>{
+  return (
+    <div>Hello Kaise ho</div>
+  )
+}
+export default App

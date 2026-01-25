@@ -7,9 +7,5 @@ html,body{
 height: 100%;
 width: 100%;
 font-family: helvetica neue;
-}
-#box{
-    height: 100px;
-    width: 100px;
-    background-color: saddlebrown;
+font-size: 40px ;
 }
