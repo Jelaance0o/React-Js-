@@ -1,0 +1,11 @@
+React Router DOM
+— install react router dom "npm i react—router—dom"
+in main.jsx "import {BrowserRouter} from '
+by BrowserRouter in main.jsx file
+wrap <App
+- In App.jsx from 'react-router-dom"'
+— make <Routes> (collection of att route) and inside <Routes></Routes> make <Route />
+mention path (where to go) and elements (what to render) attributes
+In <Route />
+— In Navbar pse <Link> tag to redirect to any specific route
+Make Navbar Component as well and add it before <Routes> in App.jsx

@@ -10,15 +10,15 @@ Functions Calling in React✅
 useState hook ✅
 Form Handling✅
 Two way Binding✅
-Basic Todo
-Basic Todo through multiple components
-LocalStorage
-Basic Todo through multiple components and localstorage
-API handling (Axios)
-useEffect
+Basic Todo ✅
+Basic Todo through multiple components ✅
+LocalStorage ✅
+Basic Todo through multiple components and localstorage ✅
+API handling (Axios)✅
+useEffect ✅
 Gallery Project
 useRef
-React Router DOM
+React Router DOM ✅
 Project with it
 ContextAPI
 useCallback, useMemo

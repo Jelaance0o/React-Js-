@@ -1,4 +1,3 @@
-import React from 'react'
 import { useState } from 'react'
 
 const LocalStorage = () => {
@@ -6,25 +5,34 @@ const LocalStorage = () => {
   const [imageURL, setImageURL] = useState('');
   const [userRole, setUserRole] = useState('')
   const [userDesc, setUserDesc] = useState('');
-  const [allUsers, setAllUsers] = useState([])
 
+  const localData = JSON.parse(localStorage.getItem('all-users')) || []
+  const [allUsers, setAllUsers] = useState(localData)
   const submitHandler =  (e)=>{
     e.preventDefault()
-  
-    setAllUsers([...allUsers, { userName, imageURL, userRole, userDesc }]);
+    const oldUsers = [...allUsers];
+    oldUsers.push({ userName, imageURL, userRole, userDesc });
+    
+    setAllUsers(oldUsers);
+    
+    localStorage.setItem('all-users',JSON.stringify(oldUsers))
     
     setUserName('')
     setImageURL('')
     setUserRole('')
     setUserDesc('')
-  } 
-  const deleteHandler = (idx)=>{
-    const oldUsers = [...allUsers]
-    oldUsers.splice(idx,1)
-    setAllUsers(oldUsers)
+    console.log(allUsers);
     
   }
-
+  const deleteHandler = (idx)=>{
+    
+    const copyUsers = [...allUsers]
+    
+    copyUsers.splice(idx,1)
+    setAllUsers(copyUsers)
+    localStorage.setItem('all-users',JSON.stringify(copyUsers))
+    
+  }
   return (
     <div>
       <form
@@ -41,7 +49,7 @@ const LocalStorage = () => {
           type="text"
           className="border rounded-xl w-[45%] p-2"
           placeholder="Enter Name"
-        />
+          />
 
         <input
           onChange={(e) => {
@@ -51,7 +59,7 @@ const LocalStorage = () => {
           type="text"
           className=" border rounded-xl w-[45%] p-2"
           placeholder="Image URL"
-        />
+          />
 
         <input
           onChange={(e) => {
@@ -61,7 +69,7 @@ const LocalStorage = () => {
           type="text"
           className=" border rounded-xl w-[45%] p-2"
           placeholder="Enter role"
-        />
+          />
 
         <input
           onChange={(e) => {
@@ -71,7 +79,7 @@ const LocalStorage = () => {
           type="text"
           className=" border rounded-xl w-[45%] p-2"
           placeholder="Enter Description"
-        />
+          />
 
         <button className="bg-emerald-400 py-2 px-6 rounded-2xl w-[98%] active:scale-95 cursor-pointer font-semibold">
           Create User
@@ -81,7 +89,8 @@ const LocalStorage = () => {
       <div className='flex gap-3 flex-wrap'>
             {allUsers.map((elem,idx)=>{
               return (
-                  <div className="w-70 h-80 bg-white rounded-2xl text-black p-3 text-center m-2">
+                <div key={idx} 
+                className="w-70 h-80 bg-white rounded-2xl text-black p-3 text-center m-2">
                     <img
                       className="h-24 w-24 rounded-full object-cover mx-auto"
                       src={elem.imageURL}
@@ -99,8 +108,7 @@ const LocalStorage = () => {
                       {elem.userDesc}
                     </p>
                     <button 
-                    onClick={(idx)=>{
-                      deleteHandler(idx)
+                    onClick={()=>{deleteHandler(idx)
                     }}
                     className="font-semibold bg-red-500 m-3 py-2 px-6 rounded-2xl text-white active:scale-95">
                       Remove
@@ -114,3 +122,4 @@ const LocalStorage = () => {
 }
 
 export default LocalStorage
+
