@@ -1,0 +1,25 @@
+*{
+margin:0%;
+padding:0%;
+box-sizing: border-box;
+}
+html,body{
+height: 100%;
+width: 100%;
+font-family: helvetica neue;
+}
+img{
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+}
+.allProducts{
+  display: flex;
+  flex-wrap: wrap;
+}
+.product{
+  height: 15rem;
+  width: 13rem;
+  background-color: antiquewhite;
+  margin: 1rem;
+}
